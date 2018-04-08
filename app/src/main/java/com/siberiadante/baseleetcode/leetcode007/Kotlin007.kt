@@ -1,6 +1,4 @@
-package com.siberiadante.baseleetcode.leetcode002
-
-import android.util.Log
+package com.siberiadante.baseleetcode.leetcode007
 
 /**
  * Created: SiberiaDante
