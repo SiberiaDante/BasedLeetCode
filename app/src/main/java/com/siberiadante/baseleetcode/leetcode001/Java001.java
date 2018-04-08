@@ -7,7 +7,7 @@ package com.siberiadante.baseleetcode.leetcode001;
  * Blog: http://www.cnblogs.com/shen-hua/
  * CreateTime: 2018/4/8
  * UpDateTime:
- * Describe:
+ * Describe:两数之和
  */
 public class Java001 {
     public int[] twoSum(int[] nums, int target) {
