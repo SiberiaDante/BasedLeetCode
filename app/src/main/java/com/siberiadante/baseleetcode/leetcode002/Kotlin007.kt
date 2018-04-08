@@ -17,7 +17,7 @@ class Kotlin007 {
         if (x < 0) {
             startLen = 1
         }
-        var str: String = x.toString()
+        val str = x.toString()
         if (str.length == 1) {
             return x
         }

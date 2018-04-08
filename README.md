@@ -1,5 +1,5 @@
 # BasedLeetCode
-LeetCode learning records based on Java,Kotlin,Python...
+LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://github.com/SiberiaDante/BasedLeetCode)
 
 > 序号对应 LeetCode 中题目序号
 ### 1 两数之和
@@ -70,7 +70,7 @@ LeetCode learning records based on Java,Kotlin,Python...
         if (x < 0) {
             startLen = 1
         }
-        var str: String = x.toString()
+        val str = x.toString()
         if (str.length == 1) {
             return x
         }
