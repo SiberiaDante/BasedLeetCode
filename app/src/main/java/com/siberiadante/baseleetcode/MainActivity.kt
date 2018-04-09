@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.siberiadante.baseleetcode.leetcode009.Kotlin009
+import com.siberiadante.baseleetcode.leetcode013.Java013
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,8 +14,9 @@ class MainActivity : AppCompatActivity() {
 //        var reverse = Java007.reverse(1112)
 //        var k = Kotlin007()
 //        var reverse = k.reverse(1234567891)
-        var kotlin009 = Kotlin009()
-        var reverse = kotlin009.isPalindrome(1000030001)
+//        var kotlin009 = Kotlin009()
+//        var reverse = kotlin009.isPalindrome(1000030001)
+        var reverse=Java013.romanToInt("VI")
         Log.d("Main", "-------result-------" + reverse)
     }
 }
