@@ -25,13 +25,13 @@ public class Java009 {
             //(x / highLength) % 10 取待比较数的最高位数
             //(x % lowLength) / (lowLength / 10) 取待比较数的最低位
             while ((x / highLength) % 10 == (x % lowLength) / (lowLength / 10)) {
-                if (highLength <= lowLength) {
+                if (highLength < lowLength) {
                     return true;
                 }
                 //相等时，最高位左移，最低位右移
                 lowLength = lowLength * 10;
                 highLength = highLength / 10;
-                if (highLength <= lowLength) {
+                if (highLength < lowLength) {
                     return true;
                 }
             }

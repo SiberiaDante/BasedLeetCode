@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 //        var k = Kotlin007()
 //        var reverse = k.reverse(1234567891)
         var kotlin009 = Kotlin009()
-        var reverse = kotlin009.isPalindrome(1234124321)
+        var reverse = kotlin009.isPalindrome(1000030001)
         Log.d("Main", "-------result-------" + reverse)
     }
 }
