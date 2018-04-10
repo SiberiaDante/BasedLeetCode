@@ -7,7 +7,7 @@ package com.siberiadante.baseleetcode.leetcode013;
  * Blog: http://www.cnblogs.com/shen-hua/
  * CreateTime: 2018/4/9
  * UpDateTime:
- * Describe:
+ * Describe:13 给定一个罗马数字，将其转换成整数
  * 1.对应转换关系：I(1)，V(5)，X(10)，L(50)，C(100)，D(500)，M(1000)
  * 2.规则：
  * 2.1：相同的数字连写， 所表示的数等于这些数字相加得到的数。如 XXX表示 30；
