@@ -12,18 +12,18 @@ import android.util.Log
  * Describe:14 编写一个函数来查找字符串数组中最长的公共前缀字符串
  */
 class Kotlin014 {
+    //have bug
     fun longestCommonPrefix(strs: Array<String>): String {
         if (strs.isEmpty()) return ""
         if (strs.size == 1) return strs[0]
         var minLength = Int.MAX_VALUE
         for (i in strs.indices) {
-            if (minLength > strs[i].length) {
+            if (minLength > strs[i].length)
                 minLength = strs[i].length
-            }
         }
         var endIndex = 0
         for (i: Int in 0 until minLength) {
-            endIndex = i
+            endIndex = i + 1
             var isEquals = true
             for (j in strs.indices) {
                 if (strs[0][i] != strs[j][i]) {

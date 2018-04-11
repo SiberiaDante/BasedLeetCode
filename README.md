@@ -4,7 +4,7 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
 > 序号对应 LeetCode 中题目序号
 ### 1 两数之和
 > 给定一个整数数列，找出其中和为特定值的那两个数,你可以假设每个输入都只会有一种答案，同样的元素不能被重用;
-* Java 语言实现
+* **Java 语言实现**
 ```
     public int[] twoSum(int[] nums, int target) {
         int i, j;
@@ -20,7 +20,7 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
     }
 ```
 
-* Kotlin 语言实现
+* **Kotlin 语言实现**
 ```
     fun twoSum(nums: IntArray, target: Int): IntArray {
         var sum: Int
@@ -37,7 +37,7 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
 ```
 
 ### 7 给定一个范围为 32 位 int 的整数，将其颠倒
-* Java 语言实现
+* **Java 语言实现**
 ```
     public static int reverse(int x) {
         int result;
@@ -63,7 +63,7 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
         return startLen == 0 ? result : result * (-1);
     }
 ```
-* Kotlin 语言实现
+* **Kotlin 语言实现**
 ```
     fun reverse(x: Int): Int {
         var startLen = 0
@@ -94,7 +94,7 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
 
 ### 9 判断一个整数是否是回文数。不能使用辅助空间
 > 什么是回文数：“回文”是指正读反读都能读通的句子；如："123321","我为人人，人人为我"等
-* Java 语言实现
+* **Java 语言实现**
 ```
     public static boolean isPalindrome(int x) {
         if (x < 0) {//负数不是回文数
@@ -125,7 +125,7 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
         }
     }
 ```
-* Kotlin 语言实现
+* **Kotlin 语言实现**
 ```
     fun isPalindrome(x: Int): Boolean {
         if (x < 0)
@@ -162,7 +162,7 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
 >   * 3.4:X只能放在L,C左边。 XL 表示40, XC表示90;
 >   * 3.5:C只能用在D, M左边。 CD 表示400, CM表示900
 
-* Java 语言实现
+* **Java 语言实现**
 ```
     public int romanToInt(String s) {
         if (s.length() == 0) {
@@ -201,7 +201,7 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
         }
     }
 ```
-* Kotlin 语言实现
+* **Kotlin 语言实现**
 ```
     fun romanToInt(s: String): Int {
         if (s.isEmpty()) {
@@ -231,71 +231,105 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
 ```
 
 ###  14 编写一个函数来查找字符串数组中最长的公共前缀字符串
-* Java 语言实现
+* **Java 语言实现**
 ```
-    public static String longestCommonPrefix(String[] strs) {
-        if (strs.length == 0) {
-            return "";
-        }
-        if (strs.length == 1) {
-            return strs[0] == null ? "" : strs[0];
-        }
-        //找出数组中字符长度最短的字符串的长度（决定最多进行轮循比较的次数或者说是位数）
-        int minLength = Integer.MAX_VALUE;
-        for (String s : strs) {
-            if (minLength > s.length()) {
-                minLength = s.length();
+
+```
+* **Kotlin 语言实现**
+```
+   
+```
+
+### 20 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效
+> 利用栈存放左括号，出现右括号时判断栈顶的左括号是否跟当前右括号相匹配，匹配则移除栈中元素；最后检测栈中元素是否全部被移除；
+* **Java 语言实现**
+```
+    public boolean isValid(String s) {
+        Stack<Character> characterStack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                characterStack.push('(');
             }
-        }
-        boolean isCharEquals = true;
-        int i;//记录最后一位相等字符的位置
-        for (i = 0; i < minLength; i++) {
-            for (int j = 0; j < strs.length; j++) {
-                if (strs[0].charAt(i) != strs[j].charAt(i)) {
-                    isCharEquals = false;
-                    break;
+            if (s.charAt(i) == '[') {
+                characterStack.push('[');
+            }
+            if (s.charAt(i) == '{') {
+                characterStack.push('{');
+            }
+            if (s.charAt(i) == ')') {
+                if (!characterStack.isEmpty() && characterStack.pop() == '(') {
+                    continue;
+                } else {
+                    return false;
                 }
             }
-            if (!isCharEquals) {
-                break;
+            if (s.charAt(i) == ']') {
+                if (!characterStack.isEmpty() && characterStack.pop() == '[') {
+                    continue;
+                } else {
+                    return false;
+                }
+            }
+            if (s.charAt(i) == '}') {
+                if (!characterStack.isEmpty() && characterStack.pop() == '{') {
+                    continue;
+                } else {
+                    return false;
+                }
             }
         }
-        return strs[0].substring(0, i);
+        return characterStack.isEmpty();
     }
 ```
-* Kotlin 语言实现
+* **Kotlin 语言实现**
 ```
-    fun longestCommonPrefix(strs: Array<String>): String {
-        if (strs.isEmpty()) return ""
-        if (strs.size == 1) return strs[0]
-        var minLength = Int.MAX_VALUE
-        for (i in strs.indices) {
-            if (minLength > strs[i].length) {
-                minLength = strs[i].length
+    fun isValid(s: String): Boolean {
+        val charStack = ArrayList<Char>()
+        for (i in s.indices) {
+            if (s[i] == '(') {
+                charStack.add('(')
             }
-        }
-        var endIndex = 0
-        for (i: Int in 0 until minLength) {
-            endIndex = i
-            var isEquals = true
-            for (j in strs.indices) {
-                if (strs[0][i] != strs[j][i]) {
-                    isEquals = false
-                    break
+            if (s[i] == '[') {
+                charStack.add('[')
+            }
+            if (s[i] == '{') {
+                charStack.add('{')
+            }
+            if (s[i] == ')') {
+                if (!charStack.isEmpty() && charStack[charStack.lastIndex] == '(') {
+                    charStack.removeAt(charStack.lastIndex)
+                    continue
+                } else {
+                    return false
                 }
             }
-            if (!isEquals) break
+            if (s[i] == ']') {
+                if (!charStack.isEmpty() && charStack[charStack.lastIndex] == '[') {
+                    charStack.removeAt(charStack.lastIndex)
+                    continue
+                } else {
+                    return false
+                }
+            }
+            if (s[i] == '}') {
+                if (!charStack.isEmpty() && charStack[charStack.lastIndex] == '{') {
+                    charStack.removeAt(charStack.lastIndex)
+                    continue
+                } else {
+                    return false
+                }
+            }
         }
-        return strs[0].substring(0, endIndex)
+        return charStack.isEmpty()
     }
 ```
 
 ### 
-* Java 语言实现
+* **Java 语言实现**
 ```
 
 ```
-* Kotlin 语言实现
+* **Kotlin 语言实现**
 ```
 
 ```

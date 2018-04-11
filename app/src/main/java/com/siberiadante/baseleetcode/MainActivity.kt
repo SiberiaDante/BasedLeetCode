@@ -22,11 +22,14 @@ class MainActivity : AppCompatActivity() {
 //        var reverse=Java013.romanToInt("VI")
 //        var kotlin013 = Kotlin013()
 //        var reverse = Kotlin013().romanToInt("DCXXI")
-        var reverse:String
-        val str = arrayOf("abcfdsg", "abcrrr", "abcd", "abcde", "abcdef", "abcdefg")
+        var reverse: String
+//        val str = arrayOf("abcfdsg", "abcrrr", "abcd", "abcde", "abcdef", "abcdefg")
+//        val str = arrayOf("xxx", "xxx", "xxx")
+        val str = arrayOf("xs", "xb")
+//        val str = arrayOf("xx", "xx", "xxx")
 //        val str= arrayOf("")
 //        reverse=Java014.longestCommonPrefix(str)
-        reverse= Kotlin014().longestCommonPrefix(str)
+        reverse = Kotlin014().longestCommonPrefix(str)
         Log.d("Main", "-------result-------" + reverse)
     }
 }
