@@ -1,7 +1,7 @@
 # BasedLeetCode
 LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://github.com/SiberiaDante/BasedLeetCode)
 
-> 序号对应 LeetCode 中题目序号
+> 序号对应 [LeetCode](https://leetcode-cn.com/problemset/all/) 中题目序号
 ### 1 两数之和
 > 给定一个整数数列，找出其中和为特定值的那两个数,你可以假设每个输入都只会有一种答案，同样的元素不能被重用;
 * **Java 语言实现**
@@ -265,7 +265,6 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
 ```
 * **Kotlin 语言实现**
 
-
 ### 20 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效
 > 利用栈存放左括号，出现右括号时判断栈顶的左括号是否跟当前右括号相匹配，匹配则移除栈中元素；最后检测栈中元素是否全部被移除；
 * **Java 语言实现**
@@ -381,6 +380,37 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
         var index = 1
         for (i in 1 until nums.size) {
             if (nums[i] != nums[i - 1]) {
+                nums[index++] = nums[i]
+            }
+        }
+        return index
+    }
+```
+
+### 27 移除元素
+> 详细描述：给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。不要使用额外的数组空间，
+你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素
+
+* **Java 语言实现**
+```
+    public int removeElement(int[] nums, int val) {
+        if (nums.length == 0) return 0;
+        int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[index++] = nums[i];
+            }
+        }
+        return index;
+    }
+```
+* **Kotlin 语言实现**
+```
+    fun removeElement(nums: IntArray, `val`: Int): Int {
+        if (nums.isEmpty()) return 0
+        var index = 0
+        for (i in 0 until nums.size) {
+            if (nums[i] != `val`) {
                 nums[index++] = nums[i]
             }
         }
