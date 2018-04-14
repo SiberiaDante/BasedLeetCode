@@ -233,12 +233,38 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
 ###  14 编写一个函数来查找字符串数组中最长的公共前缀字符串
 * **Java 语言实现**
 ```
-
+    public static String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0) {
+            return "";
+        }
+        if (strs.length == 1) {
+            return strs[0] == null ? "" : strs[0];
+        }
+        //找出数组中字符长度最短的字符串的长度（决定最多进行轮循比较的次数或者说是位数）
+        int minLength = Integer.MAX_VALUE;
+        for (String s : strs) {
+            if (minLength > s.length()) {
+                minLength = s.length();
+            }
+        }
+        boolean isCharEquals = true;
+        int i;//记录最后一位相等字符的位置
+        for (i = 0; i < minLength; i++) {
+            for (int j = 0; j < strs.length; j++) {
+                if (strs[0].charAt(i) != strs[j].charAt(i)) {
+                    isCharEquals = false;
+                    break;
+                }
+            }
+            if (!isCharEquals) {
+                break;
+            }
+        }
+        return strs[0].substring(0, i);
+    }
 ```
 * **Kotlin 语言实现**
-```
-   
-```
+
 
 ### 20 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效
 > 利用栈存放左括号，出现右括号时判断栈顶的左括号是否跟当前右括号相匹配，匹配则移除栈中元素；最后检测栈中元素是否全部被移除；
@@ -321,6 +347,44 @@ LeetCode learning records based on Java,Kotlin,Python...[Github 地址](https://
             }
         }
         return charStack.isEmpty()
+    }
+```
+
+### 26 删除排序数组中的重复项
+> 题目详细描述：给定一个排序数组，你需要在**[原地](http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95)**删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
+不要使用额外的数组空间，你必须在**[原地](https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95)修改输入数组**并在使用 O(1) 额外空间的条件下完成。
+
+> 思路：从角标2开始向后遍历，如果当前元素和前一个元素不相同，就把角标为index的值赋值为当前元素，index自增
+* **Java 语言实现**
+```
+    public int removeDuplicates(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return 1;
+        }
+        int index = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[index++] = nums[i];
+            }
+        }
+        return index;
+    }
+```
+* **Kotlin 语言实现**
+```
+    fun removeDuplicates(nums: IntArray): Int {
+        if (nums.isEmpty()) return 0
+        if (nums.size == 1) return 1
+        var index = 1
+        for (i in 1 until nums.size) {
+            if (nums[i] != nums[i - 1]) {
+                nums[index++] = nums[i]
+            }
+        }
+        return index
     }
 ```
 
