@@ -1,4 +1,4 @@
-package com.siberiadante.baseleetcode.leetcode001
+package com.siberiadante.baseleetcode.`001`
 
 /**
  * Created: SiberiaDante

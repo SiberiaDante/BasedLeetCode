@@ -12,7 +12,7 @@ package com.siberiadante.baseleetcode.leetcode027;
  * 你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
  */
 public class Java027 {
-    public int removeElement(int[] nums, int val) {
+    public static int removeElement(int[] nums, int val) {
         if (nums.length == 0) return 0;
         int index = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -22,4 +22,5 @@ public class Java027 {
         }
         return index;
     }
+
 }
